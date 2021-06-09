@@ -1,0 +1,48 @@
+C:\node>thy role create --name dsv-ss-sync
+{
+  "created": "2020-09-09T23:20:41Z",
+  "createdBy": "users:thy-one:email@mg.thyllc.com",
+  "description": "",
+  "externalId": "",
+  "groups": null,
+  "id": "fc052680-2a76-4515-95eb-",
+  "lastModified": "2020-09-09T23:20:41Z",
+  "lastModifiedBy": "users:thy-one:email@mg.thyllc.com",
+  "name": "dsv-ss-sync",
+  "provider": "",
+  "version": "0"
+}
+
+
+C:\node>thy client create --role dsv-ss-sync
+{
+  "clientId": "412fcd9e--restofclientid",
+  "clientSecret": "uwThE8uhEx3l9N--restofpassword",
+  "created": "2020-09-09T23:21:23Z",
+  "createdBy": "users:thy-one:email@mg.thyllc.com",
+  "id": "6fbf39fa-a596-4b7e-8047-",
+  "role": "dsv-ss-sync"
+}
+
+C:\node>thy policy create --path secrets/dsvss7 --actions  create,read,update,delete,list  --desc "Sync Policy" --subjects "roles:dsv-ss-sync" --effect allow
+{
+  "created": "2020-09-10T13:58:48Z",
+  "createdBy": "users:thy-one:email@mg.thyllc.com",
+  "id": "47d840d0-ab15-4d5e-b1f3-",
+  "lastModified": "2020-09-10T13:58:48Z",
+  "lastModifiedBy": "users:thy-one:email@mg.thyllc.com",
+  "path": "secrets:dsvss7",
+  "permissionDocument": [
+    {
+      "actions": ["create", "read", "update", "delete", "list"],
+      "conditions": {},
+      "description": "Sync Policy",
+      "effect": "allow",
+      "id": "btd3265d36rs72v",
+      "meta": null,
+      "resources": ["secrets:dsvss7:<.*>"],
+      "subjects": ["roles:dsv-ss-sync"]
+    }
+  ],
+  "version": "0"
+}
